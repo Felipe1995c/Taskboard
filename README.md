@@ -39,7 +39,8 @@ The following animation demonstrates the application functionality:
 ![A user adds three tasks to the task board and changes the state of two of them to in progress and then completion. The user then deletes the two cards in the done column.](./Assets/05-third-party-apis-homework-demo.gif)
 
 ## Usage
-
+With this website the user will be able to add tasks that they would like to keep track of or just have written down. Once done with the task, the user can delete the task using the delete button. The user can also click, drag, and move the tasks where ever they may please.
 
 
 ## Sources
+For this project I utilized documentations for Javascript on (https://devdocs.io/javascript/global_objects/function), the instructors lessons/activities, [JQuery webpage](https://jqueryui.com/draggable/), and [day.js website](https://day.js.org/docs/en/installation/installation)
