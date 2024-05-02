@@ -10,27 +10,28 @@ function generateTaskId() {
     const randomStr = Math.random().toString(36).substring(2, 5); // Generate a random string
     return timestamp + randomStr; // Combine timestamp and random string
 };
-const uniqueTaskId = generateTaskId();
+// const uniqueTaskId = generateTaskId();
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
     const taskCard = document.createElement("div");
-    taskCard.classList.add("task-card");
+    taskCard.classList.add("task-card draggable droppable");
     taskCard.textContent = task.title;
     document.getElementById("container").append.child(taskCard);
 };
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
-    $("#draggable").draggable();
+    $(".draggable").draggable();
 };
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event) {
     const randomNumber = Math.random();
+    //taskCard will target the div and add a class("card project ...ect") attempting to creat HTML to render on the page
     const taskCard = $('<div>')
-        .addClass('card project-card draggable my-3')
-        .attr('data-project-id', randomNumber);  //generate random number
+        .addClass('card project-card draggable droppable my-3')
+        .attr('data-project-id', randomNumber);  //generate random number .val() uses JQUery to target the value of inputs
     const cardHeader = $('<div>').addClass('card-header h4').text($('#title-input').val());
     const cardBody = $('<div>').addClass('card-body');
     const cardDescription = $('<p>').addClass('card-text').text($('#descript-input').val());
@@ -58,8 +59,8 @@ function handleDeleteTask(event) {
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
     event.preventDefault();
-    $("#draggable").draggable();
-    $("#droppable").droppable({
+    $(".draggable").draggable();
+    $(".droppable").droppable({
         drop: function (event, ui) {
             $(this)
                 .addClass("ui-state-highlight")
@@ -71,7 +72,6 @@ function handleDrop(event, ui) {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
-
     renderTaskList();
 
     $(function () {
@@ -88,13 +88,6 @@ $(document).ready(function () {
         $('#add-task-btn').click(function () {
             $("#dialog").dialog("open")
         })
+        
     });
-    // function runCode(){
-    //     var td=new Todo()
-    //     td.addTask("Hello World")
-    //     td.addTask("Great News")
-    //     td.printList()
-    //     }
-
-
 });

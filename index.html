@@ -22,9 +22,9 @@
     </header>
     <div class="container">
         <div class="text-center mb-5">
-            <button class="btn btn-success" id="add-task-btn" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+            <button class="btn btn-success" id="add-task-btn" >Add Task</button>
         </div>
-       
+       <!-- Modal starts here -->
         <div id="dialog" title="Basic dialog">
             <form id="form">
                 <label for="title">Title</label>
@@ -35,8 +35,8 @@
                 <input name="descript" type="text" id="descript-input"/>
             </form>
         </div>
-
-        <div class="row swim-lanes text-center justify-content-between">
+<!-- Modal Ends here -->
+        <div class="row swim-lanes text-center justify-content-between">         
             <div class="col-12 col-lg-4 d-flex">
                 <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
                     <div class="card-header bg-white">
@@ -47,6 +47,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 col-lg-4 d-flex">
                 <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
                     <div class="card-header bg-white">
@@ -57,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-12 col-lg-4 d-flex">
                 <div id="done" class="card border-light mb-3 lane flex-grow-1">
                     <div class="card-header bg-white">
