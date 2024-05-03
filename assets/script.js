@@ -10,23 +10,10 @@ function generateTaskId() {
     const randomStr = Math.random().toString(36).substring(2, 5); // Generate a random string
     return timestamp + randomStr; // Combine timestamp and random string
 };
-// const uniqueTaskId = generateTaskId();
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-    const taskCard = document.createElement("div");
-    taskCard.classList.add("task-card draggable droppable");
-    taskCard.textContent = task.title;
-    document.getElementById("container").append.child(taskCard);
-};
 
-// Todo: create a function to render the task list and make cards draggable
-function renderTaskList() {
-    $(".draggable").draggable();
-};
-
-// Todo: create a function to handle adding a new task
-function handleAddTask(event) {
     const randomNumber = Math.random();
     //taskCard will target the div and add a class("card project ...ect") attempting to creat HTML to render on the page
     const taskCard = $('<div>')
@@ -46,7 +33,52 @@ function handleAddTask(event) {
     cardBody.append(cardDescription)
     cardBody.append(cardDueDate)
     $('#todo-cards').append(taskCard)
+
+
+
+    // const taskCard = document.createElement("div");
+    // taskCard.classList.add("task-card draggable droppable");
+    // taskCard.textContent = task.title;
+    // document.getElementById("container").append.child(taskCard);
+    // if (task.dueDate && task.status !== "done") {
+    //     const now = dayjs();
+    //     const taskDueDate = dayjs(task.DueDate, 'DD/MM/YYYY')
+    //     console.log(taskDueDate);
+    // };
 };
+
+// Todo: create a function to render the task list and make cards draggable
+function renderTaskList() {
+    $()
+    $(".draggable").draggable({
+        accept: '.draggable'
+    });
+};
+
+// Todo: create a function to handle adding a new task
+function handleAddTask(event) {
+    event.preventDefault();
+    if (!taskList){
+    let taskList = []; //empty array to be able to push new tasks
+    }
+    const title = $('#title-input').val();
+    const date = $('#date-input').val();
+    const description = $('#descript-input').val();
+    const Id = generateTaskId();
+    const newTask = {
+        title: title,
+        date: date,
+        decription: description,
+        Id: Id,
+    };
+    localStorage.setItem("taskList", JSON.stringify(newTask));   
+    taskList.push(newTask);
+   
+};
+
+
+
+
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event) {
     event.preventDefault();
@@ -72,14 +104,17 @@ function handleDrop(event, ui) {
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
     renderTaskList();
-
+    $('#date-input').datepicker({
+        changeMonth: true,
+        changeYear: true,
+    });
     $(function () {
         $("#dialog").dialog({
             autoOpen: false,
             title: "Add New Task",
             buttons: {
                 "Add Task": function (e) {
-                    handleAddTask(e)
+                    createTaskCard(e)
                     $(this).dialog("close")
                 }
             }
@@ -87,6 +122,6 @@ $(document).ready(function () {
         $('#add-task-btn').click(function () {
             $("#dialog").dialog("open")
         })
-        
+
     });
 });
