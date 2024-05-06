@@ -34,12 +34,18 @@ WHEN I refresh the page
 THEN the saved tasks persist
 ```
 
-The following animation demonstrates the application functionality:
+The following pictures demonstrate the application functionality:
 
-![A user adds three tasks to the task board and changes the state of two of them to in progress and then completion. The user then deletes the two cards in the done column.](./Assets/05-third-party-apis-homework-demo.gif)
+1.[With this application you will be able to use the local storage to have a page load with previous tasks that you have added](./images/local%20storage.jpg)
+
+2.[You will be able to add new tasks and store them in the local storage](./images/new%20tasks.jpg)
+
+3.[When inserting a new task you will be given the choice to pick a date with a calendar](./images/datepicker.jpg)
+
+4.[You can also start or clear local storage to start with a brand new page](./images/clear%20local%20storage.jpg)
 
 ## Usage
-With this website the user will be able to add tasks that they would like to keep track of or just have written down. Once done with the task, the user can delete the task using the delete button. The user can also click, drag, and move the tasks where ever they may please.
+With this website the user will be able to add tasks that they would like to keep track of or just have written down. Once done with the task, the user can delete the task using the delete button. The user can also click, drag, and move the tasks to any of the three columns.
 
 
 ## Sources
